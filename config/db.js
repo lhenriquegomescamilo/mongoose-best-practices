@@ -2,7 +2,7 @@
 var mongoose = require( 'mongoose' );
 
 // Build the connection string
-var dbURI = 'mongodb://localhost/mongoose-best-practices';
+var dbURI = 'mongodb://localhost/prova-angular';
 
 // Create the database connection
 mongoose.connect(dbURI);

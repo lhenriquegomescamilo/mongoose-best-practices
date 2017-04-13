@@ -1,7 +1,8 @@
 var http = require('http'),
     db = require('./config/db'),
-    pages = require('./pages');
+    pages = require('./pages'),
+    app = require("./config/express");
 
-http.createServer(function (req, res) {
-  pages.index(req, res);
-}).listen(8888, '127.0.0.1');
+http.createServer(app).listen(3001, function(){
+  console.log("THE SERVER IS RUNNING ON PORT ", this.address().port);
+});

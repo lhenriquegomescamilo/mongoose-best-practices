@@ -8,14 +8,18 @@ api.createContact = function(req,res){
     contactModel.save(function(error, contactPersisted){
         if(error ) console.log(error);
         console.log(contactPersisted);
+        res.status(200);
+        res.end();
     });
     console.log(ContactModel);
-}
+};
 
 api.getContact = function(req,res){
-    
-res.json({ success : "DEU CERTO"});
-    res.end();
-}
+    ContactModel.find({},function(err, docs){
+        console.log("THE RESPONSE CONTACT MODEL IS",docs);
+        res.json(docs);
+        res.end();
+    });
+};
 
 module.exports = api;

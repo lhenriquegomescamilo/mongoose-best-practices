@@ -7,8 +7,6 @@ module.exports = function(app){
 
 
 
-    app.route("/v1/conctacts/:conctactId")
-    .delete(function(req,res){
-        console.log(req.params.contactId);
-    });
+    app.route("/v1/conctacts/:email")
+    .delete(api.getByEmail);
 }

@@ -1,4 +1,5 @@
 var ContactModel = require("../model/contacts");
+var _ = require("lodash");
 var api = {};
 
 api.createContact = function(req,res){
@@ -16,10 +17,18 @@ api.createContact = function(req,res){
 
 api.getContact = function(req,res){
     ContactModel.find({},function(err, docs){
-        console.log("THE RESPONSE CONTACT MODEL IS",docs);
         res.json(docs);
         res.end();
     });
 };
+
+api.getByEmail = function(req,res){
+    ContactModel.find({email : req.params.email}, function(error, docs){
+       console.log("here");
+        res.json(_.head(docs));
+        res.end();
+    });
+};
+
 
 module.exports = api;
